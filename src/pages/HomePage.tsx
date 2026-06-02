@@ -149,6 +149,17 @@ const HomePage: React.FC = () => {
   };
 
   const handleUpdateTask = async (taskId: string, data: Partial<Task> & { categoryId?: string }) => {
+    // 1. Find the old task for reverting
+    const oldTask = tasks.find(t => t.id === taskId);
+    if (!oldTask) return;
+
+    // 2. Apply optimistic update immediately
+    const optimisticTask = { ...oldTask, ...data };
+    setTasks((prev) => prev.map((t) => t.id === taskId ? optimisticTask : t));
+    if (selectedTask?.id === taskId) {
+      setSelectedTask(optimisticTask);
+    }
+
     try {
       const payload: Parameters<typeof updateTodo>[1] = {};
       if (data.title !== undefined) payload.title = data.title;
@@ -161,10 +172,19 @@ const HomePage: React.FC = () => {
 
       const updated = await updateTodo(taskId, payload);
       const task = backendToTask(updated);
+      
+      // Update with definitive data from server
       setTasks((prev) => prev.map((t) => t.id === taskId ? task : t));
-      setSelectedTask(task);
+      if (selectedTask?.id === taskId) {
+        setSelectedTask(task);
+      }
     } catch (e) {
-      console.error(e);
+      console.error("Update failed, reverting state:", e);
+      // Revert on failure
+      setTasks((prev) => prev.map((t) => t.id === taskId ? oldTask : t));
+      if (selectedTask?.id === taskId) {
+        setSelectedTask(oldTask);
+      }
     }
   };
 
