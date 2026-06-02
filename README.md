@@ -42,7 +42,7 @@ npm run dev
 La aplicación web estará disponible típicamente en `http://localhost:5173`.
 
 ## 🔗 Links Deployados
-Actualmente el proyecto está diseñado para ejecutarse y probarse en el entorno local apuntando al backend alojado remotamente.
+https://todo-web-omega-snowy.vercel.app/
 
 ## 👥 Usuarios de Prueba
 Al utilizar Firebase, puedes registrarte fácilmente como un nuevo usuario directamente desde la página de inicio (`/register`) para comenzar a interactuar con las tareas, o ingresar con cualquier cuenta ya dada de alta en el proyecto de Firebase.
