@@ -19,17 +19,17 @@ Cliente web oficial del ecosistema ToDo, que ofrece una experiencia moderna de g
    ```
 
 ## ⚙️ Variables de Entorno
-Crea un archivo `.env` en la raíz del proyecto (basado en la configuración provista). Deberá contener las siguientes variables:
+Crea un archivo `.env` en la raíz del proyecto. **Para facilitar la ejecución inmediata de este proyecto, copia exactamente el siguiente contenido** que ya incluye las API keys de desarrollo activas y la URL del backend remoto:
 
 ```env
-VITE_FIREBASE_API_KEY=tu_api_key
-VITE_FIREBASE_AUTH_DOMAIN=tu_dominio.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=tu_project_id
-VITE_FIREBASE_STORAGE_BUCKET=tu_bucket.firebasestorage.app
-VITE_FIREBASE_MESSAGING_SENDER_ID=tu_sender_id
-VITE_FIREBASE_APP_ID=tu_app_id
+VITE_FIREBASE_API_KEY=AIzaSyAYAWUkVRUxFKGN18ZuxMXmJzjQDmSxTXQ
+VITE_FIREBASE_AUTH_DOMAIN=medsync-1.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=medsync-1
+VITE_FIREBASE_STORAGE_BUCKET=medsync-1.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=311397141244
+VITE_FIREBASE_APP_ID=1:311397141244:web:6934803947fb8515f2a579
 
-# URL del backend (Producción o localhost)
+# URL del backend deployado en GCP
 VITE_API_URL=https://todo-backend-424512506456.europe-west1.run.app
 ```
 
